@@ -1,0 +1,14 @@
+﻿from kiteconnect import KiteConnect
+
+api_key = "plrmtvjimvvnwp80"
+api_secret = "itbl1hqjcw6i1kg7pp9s8r4fxu6kb04b"
+request_token = "VsdiwHusUtU61etNvm1lbb5lxkPfU5f6"
+
+kite = KiteConnect(api_key=api_key)
+data = kite.generate_session(request_token, api_secret=api_secret)
+
+access_token = data["access_token"]
+print("🎯 Your Access Token:", access_token)
+
+# Optional: Set access token for future API calls
+kite.set_access_token(access_token)
