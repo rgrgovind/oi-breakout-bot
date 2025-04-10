@@ -1,4 +1,8 @@
-﻿# dashboard.py
+Time,Symbol,OptionType,OIChange
+2025-04-10 12:00:00,NIFTY,CE,12.3%
+2025-04-10 12:05:00,BANKNIFTY,PE,14.2%
+
+# dashboard.py
 import pandas as pd
 import streamlit as st
 import os
