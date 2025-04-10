@@ -1,24 +1,4 @@
-Time,Symbol,OptionType,OIChange
-2025-04-10 12:00:00,NIFTY,CE,12.3%
-2025-04-10 12:05:00,BANKNIFTY,PE,14.2%
-
-# dashboard.py
-import pandas as pd
-import streamlit as st
 import os
-import pandas as pd
-import streamlit as st
-
-st.set_page_config(page_title="OI Breakout Dashboard", layout="wide")
-
-st.title("📈 OI Breakout Tracker")
-
-try:
-    df = pd.read_csv("logs/oi_breakouts.csv")
-    st.dataframe(df.tail(20), use_container_width=True)
-except Exception as e:
-    st.error(f"Couldn't load log file: {e}")
-    import os
 import pandas as pd
 import streamlit as st
 
@@ -27,7 +7,7 @@ LOG_FILE = "logs/oi_breakouts.csv"
 st.title("📈 OI Breakout Tracker")
 
 if not os.path.exists(LOG_FILE):
-    st.warning("No log file found yet.")
+    st.warning("No breakout data found yet.")
     st.stop()
 
 try:
@@ -39,7 +19,4 @@ except Exception as e:
     st.error(f"Couldn't load log file: {e}")
     st.stop()
 
-st.success("Data loaded successfully!")
-
-# Your visualizations go here
-
+st.dataframe(df)
